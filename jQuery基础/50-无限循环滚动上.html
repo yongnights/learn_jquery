@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>50-无限循环滚动上</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 600px;
+            height: 161px;
+            border: 1px solid #000000;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            width: 1800px;
+            height: 161px;
+            background: rgba(255, 0, 0, 0.5);
+
+        }
+
+        ul > li {
+            float: left;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            // 0.定义变量保存偏移位
+            var offset = 0;
+            // 1.让图片滚动起来
+            var timer = setInterval(function () {
+                offset += -10;
+                if (offset <= -1200) {
+                    offset = 0;
+                }
+                $('ul').css('marginLeft', offset)
+            }, 50);
+        });
+
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="images/a.jpg" alt=""></li>
+        <li><img src="images/b.jpg" alt=""></li>
+        <li><img src="images/c.jpg" alt=""></li>
+        <li><img src="images/d.jpg" alt=""></li>
+        <li><img src="images/a.jpg" alt=""></li>
+        <li><img src="images/b.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

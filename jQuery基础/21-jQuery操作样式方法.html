@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21-jQuery操作样式方法</title>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            // 1.逐个设置
+            $('div').css('width', '100px');
+            $('div').css('height', '100px');
+            $('div').css('background', 'yellow');
+            // 2.链式设置
+            // 注意点：链式操作如果大于三步，建议分开
+            $('div').css('width', '100px').css('height', '100px').css('background', 'red');
+            // 3.批量设置
+            $('div').css({
+                width: '100px',
+                height: '100px',
+                background: 'green'
+            });
+
+            // 4.获取
+            console.log($('div').css('width'));
+            console.log($('div').css('height'));
+        });
+
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

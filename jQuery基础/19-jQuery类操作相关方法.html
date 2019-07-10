@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>19-jQuery类操作相关方法</title>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            // 1.addClass(class|fn)
+            // 作用：添加一个类，如果要添加多个，中间用空格隔开
+            // 2.removeClass([class|fn])
+            // 作用：删除一个类，如果要删除多个，中间用空格隔开
+            // 3.toggleClass(class|fn[,sw])
+            // 作用：切换，有就删除，没有就添加
+
+            var btns = document.getElementsByTagName('button');
+            btns[0].onclick = function () {
+                $('div').addClass('class1 class2');
+            };
+            btns[1].onclick = function () {
+                $('div').removeClass('class1 class2');
+            };
+            btns[2].onclick = function () {
+                $('div').toggleClass('class1 class2');
+            };
+        });
+
+    </script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .class1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .class2 {
+            border: 10px solid yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<button>添加类</button>
+<button>删除类</button>
+<button>切换类</button>
+<div></div>
+</body>
+</html>

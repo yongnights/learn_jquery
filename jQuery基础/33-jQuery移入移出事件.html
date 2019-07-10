@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>33-jQuery移入移出事件</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background: gold;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            /*
+            * mouseover/mouseout事件，子元素被移入移出也会触发父元素的事件
+            * */
+            // $(".father").mouseover(function () {
+            //     console.log('father被移入了！')
+            // });
+            // $(".father").mouseout(function () {
+            //     console.log('father被移出了！')
+            // });
+
+            /*
+            * mouseenter/mouseleave事件，子元素被移入移出不会触发父元素的事件
+            * 推荐大家使用
+            * */
+            // $(".father").mouseenter(function () {
+            //     console.log('father被移入了！')
+            // });
+            // $(".father").mouseleave(function () {
+            //     console.log('father被移出了！')
+            // });
+
+            /*
+            * hover事件，第一个函数是监听移入事件，第二个函数是监听移出事件，子元素被移入移出不会触发父元素的事件
+            * */
+            // $(".father").hover(function () {
+            //     console.log('father被移入了！')
+            // }, function () {
+            //     console.log('father被移出了！')
+            // });
+
+            /*
+            * hover事件只用一个函数，监听移入和移出事件，子元素被移入移出不会触发父元素的事件
+            * */
+            $(".father").hover(function () {
+                console.log('father被移入移出了！');
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+</body>
+</html>

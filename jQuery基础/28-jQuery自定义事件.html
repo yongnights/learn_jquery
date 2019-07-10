@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>28-jQuery自定义事件</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background: gold;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            /*
+            * 自定义事件需要满足两个条件
+            * 1.事件必须是通过on绑定
+            * 2.事件必须通过trigger来触发
+            *
+            * */
+            // $('.son').myClick(function () {
+            //     alert('son');
+            // });
+            // $('.son').trigger('myClick');
+
+            $('.son').on('myClick', function () {
+                alert('son');
+            });
+            $('.son').trigger('myClick');
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son">
+    </div>
+</div>
+</body>
+</html>

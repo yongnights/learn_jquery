@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-jQuery冲突问题</title>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+    <script type="text/javascript">
+        // 1.释放$符号的控制权
+        // 注意点：释放操作必须在编写其他jQuery代码之前编写
+        //        释放之后就不能在使用$，改为使用jQuery
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            alert('Hello World!');
+        });
+
+        // 2.自定义访问符号
+        var nl = jQuery.noConflict();
+        nl(document).ready(function () {
+            alert('Hello World!');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

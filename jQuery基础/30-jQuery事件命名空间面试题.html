@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>30-jQuery事件命名空间面试题</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background: gold;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $('.father').on('click.zs', function () {
+                alert('father click-1');
+            });
+            $('.father').on('click', function () {
+                alert('father click-2');
+            });
+            $('.son').on('click.zs', function () {
+                alert('son click-1');
+            });
+            // 1.利用trigger触发子元素带有命令空间的事件，那么父元素带相同命名空间的事件也会被触发，而父元素没有命令空间的不会被触发
+            // $('.son').trigger('click.zs');
+
+            // 2.利用trigger触发子元素不带命令空间的事件，那么子元素所有相同类型的事件和父元素所有相同的事件都会被触发
+            $('.son').trigger('click');
+        });
+
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son">
+    </div>
+</div>
+</body>
+</html>

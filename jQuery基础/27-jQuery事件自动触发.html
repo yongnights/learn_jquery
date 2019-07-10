@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27-jQuery事件自动触发</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background: gold;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            $('.son').click(function () {
+                alert('son');
+
+            });
+            $('.father').click(function () {
+                alert('father');
+            });
+
+            /*
+            * trigger:如果利用trigger自动触发事件，会触发事件冒泡
+            * triggerHandler：如果利用trigger自动触发事件，不会触发事件冒泡
+            */
+            // $('.father').trigger('click');
+            // $('.son').trigger('click');
+            // $('.father').triggerHandler('click');
+            // $('.son').triggerHandler('click');
+
+            /*
+             * trigger:如果利用trigger自动触发事件，会触发默认行为
+             * triggerHandler：如果利用trigger自动触发事件，不会触发默认行为
+             */
+            // $("input[type='submit']").click(function () {
+            //     alert('submit');
+            // });
+
+            // $("input[type='submit']").trigger('click');
+            // $("input[type='submit']").triggerHandler('click');
+
+            $('a').click(function () {
+                alert('a');
+            });
+            // 注意点：trigger和triggerHandler针对a标签的操作一样，不会触发默认行为
+            // $('a').trigger('click');
+            // $('a').triggerHandler('click');
+            // 但是若想a标签自动触发，且有默认行为,需要针对a标签里的span元素进行操作
+            $('span').trigger('click');
+        });
+
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son">
+
+    </div>
+</div>
+<a href="http://www.baidu.com">我是百度</a>
+<a href="http://www.baidu.com"><span>我是有默认行为的</span></a>
+<form action="http://www.taobao.com">
+    <input type="text">
+    <input type="submit">
+</form>
+</body>
+</html>

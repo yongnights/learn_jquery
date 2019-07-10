@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12-jQuery-holdReady方法</title>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        // 使用$直接调用,是静态方法
+        $.holdReady(true); // 作用：暂停ready代码的执行
+        $(function () {
+            alert('function');
+        })
+    </script>
+</head>
+<body>
+<button>点击测试弹出</button>
+<script type="text/javascript">
+    var btn = document.getElementsByTagName('button')[0];
+    btn.onclick = function () {
+        alert('btn');
+        $.holdReady(false); // 不解除的话alert('function');不会弹出
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02</title>
+    <!--<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        // 注意:以下两个引入的jQuery版本不同，弹出顺序也不同
+        // 引入的是1.x版本的，则先弹出jQuery写法的，然后再弹出原生写法的
+        // 引入的是3.x版本的，则先弹出原生写法的，然后再弹出jQuery写法的
+
+        // 1.原生JS的固定写法
+        window.onload = function (ev) {
+            alert('Hello World! 1');
+        };
+
+        // 2.jQuery的固定写法
+        $(document).ready(function () {
+            alert('Hello World! 2');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
